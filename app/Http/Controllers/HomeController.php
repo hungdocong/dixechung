@@ -7,15 +7,21 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        return view('welcome');
+        return view('index');
     }
-    public function show_timkiem(){
-        return view('search');
-    }
+   
     public function dang_bai(){
-        return view('dangbai');
+        return view('where');
     }
-    public function dky_dnhap(){
-        return view('dk_dn');
+
+    public function phuong_tien(){
+        return view('vehicle');
+    }
+    public function gia(){
+        return view('price');
+    }
+
+    public function finish(){
+        return view('finish');
     }
 }

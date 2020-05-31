@@ -188,14 +188,7 @@ select.list-dt:focus {
     margin: 0 auto 10px auto;
     padding: 2px
 }
-div#column_left {
-    float: left;
-    width: 620px;
-}
-div#column_right {
-    float: right;
-    width: 720px;
-}
+
 iframe {
     padding: 3px 3px 0px 0px;
     margin-top: -1px;
