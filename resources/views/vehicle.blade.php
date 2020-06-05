@@ -3,7 +3,7 @@
 @section('title', 'Phương tiện di chuyển')
 
 @section('content')
-	
+
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -38,7 +38,7 @@
 							<label for="uname"><b>địa chỉ</b></label>
 							<input type="text" placeholder="địa chỉ" name="address" required>
 							<label for="uname"><b>số điện thoại</b></label>
-							<input type="text" placeholder="số điện thoại" name="phone" required>      
+							<input type="text" placeholder="số điện thoại" name="phone" required>
 							<button type="submit">đăng ký</button>
 						</div>
 					</div>
@@ -72,7 +72,7 @@
         			<input type="password" placeholder="mật khẩu" name="psw" required>
         			<label>
         				<input type="checkbox" checked="checked" name="remember"> nhớ mật khẩu
-        			</label>                  
+        			</label>
         			<button type="submit">đăng nhập</button>
         			<a class="psw" style=" color:black; " href="#">quên mật khẩu?</a>
         		</div>
@@ -122,18 +122,19 @@
 </div>
 
 <div class="container" style="padding: 50px">
-	<form>
+	<form id="frmVehicle" action="{{ url('/gia.html') }}" method="POST" role="form">
+        {{ csrf_field() }}
 		<div class="col-md-12 well well-lg">
 			<div class="col-sm-2">
 				Tôi là <span style="color: red">(*)</span>
 			</div>
+			{{-- <div class="driver">
+				<img src="{{asset('public/fontend/img/volang.png')}}" style="height: 100px; float: left;">
+				<input type="radio" name="Iam" /><span> Chủ xe</span>
+			</div> --}}
 			<div class="driver">
-				<img src="{{asset('public/fontend/img/volang.png')}}" style="height: 100px; float: left;"> 
-				<input type="radio" name="Iam" /><span> Chủ xe</span> 
-			</div>
-			<div class="driver">
-				<img src="{{asset('public/fontend/img/passenger.png')}}" style="height: 100px; float: left;"> 
-				<input type="radio" name="Iam" /> <span>Hành khách</span>
+				<img src="{{asset('public/fontend/img/passenger.png')}}" style="height: 100px; float: left;">
+				<input type="radio" name="Iam" checked="checked" /> <span>Hành khách</span>
 			</div>
 		</div>
 		<div class="col-md-12 well well-lg">
@@ -141,12 +142,12 @@
 				Phương tiện <span style="color: red">(*)</span>
 			</div>
 			<div class="driver">
-				<img src="{{asset('public/fontend/img/car.png')}}" style="height: 100px; float: left;"> 
-				<input type="radio" name="vehicle" /> <span>Ô tô</span> 
+				<img src="{{asset('public/fontend/img/car.png')}}" style="height: 100px; float: left;">
+				<input type="radio" name="vehicle" value="Ô tô" checked="checked"/> Ô tô
 			</div>
 			<div class="driver">
-				<img src="{{asset('public/fontend/img/motobike.png')}}" style="height: 100px; float: left;"> 
-				<input type="radio" name="vehicle" /> <span>Xe máy</span>
+				<img src="{{asset('public/fontend/img/motobike.png')}}" style="height: 100px; float: left;">
+				<input type="radio" name="vehicle"  value="Xe máy" />Xe máy
 			</div>
 		</div>
 
@@ -157,7 +158,7 @@
 			<div class="col-md-3">
 				<div class="form-group">
 					<div class='input-group date' id='pickDateTime'>
-						<input type='text' class="form-control" placeholder="Ngày giờ khởi hành..." />
+						<input type='text' class="form-control" name="startTime" placeholder="Ngày giờ khởi hành..." />
 						<span class="input-group-addon">
 							<span class="glyphicon glyphicon-calendar">
 							</span>
@@ -170,11 +171,11 @@
 
 		<div class="col-md-4" style="margin-left: 200px;">
 			<a href="/dixechung/dang-lo-trinh.html" style="padding-right: 25px"><i class="glyphicon glyphicon-triangle-left"></i>Trở lại</a>
-			<button type="button" class="btn btn-success" id="nextInfo" name=""> Tiếp theo<i class="glyphicon glyphicon-triangle-right" style="padding-left: 5px"></i></button>
+			<button type="submit" class="btn btn-success" name=""> Tiếp theo<i class="glyphicon glyphicon-triangle-right" style="padding-left: 5px"></i></button>
 		</div>
 
 	</form>
-</div> 
+</div>
 
 @endsection
 
@@ -182,11 +183,18 @@
 @section('jsScript')
     <script type="text/javascript">
 
-		$(document).ready(function(){
-            $('#nextInfo').click(function(){
-               window.location.href = "/dixechung/gia.html" ;
-            });
-        })
+        $(document).ready(function(){
+
+        //validate form
+        $("#frmVehicle").validate({
+            rules: {
+                timeStart: "required"
+            },
+            messages: {
+                timeStart: "Vui lòng nhập thời gian xuất phát"
+            }
+        });
+    })
 
     	$(function () {
     		var maxDate = new Date($.now());

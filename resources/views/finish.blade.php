@@ -1,9 +1,9 @@
 @extends('layouts._layout')
 
-@section('title', 'Giá lộ trình')
+@section('title', 'Thành công')
 
 @section('content')
-	
+
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -38,7 +38,7 @@
 							<label for="uname"><b>địa chỉ</b></label>
 							<input type="text" placeholder="địa chỉ" name="address" required>
 							<label for="uname"><b>số điện thoại</b></label>
-							<input type="text" placeholder="số điện thoại" name="phone" required>      
+							<input type="text" placeholder="số điện thoại" name="phone" required>
 							<button type="submit">đăng ký</button>
 						</div>
 					</div>
@@ -72,7 +72,7 @@
         			<input type="password" placeholder="mật khẩu" name="psw" required>
         			<label>
         				<input type="checkbox" checked="checked" name="remember"> nhớ mật khẩu
-        			</label>                  
+        			</label>
         			<button type="submit">đăng nhập</button>
         			<a class="psw" style=" color:black; " href="#">quên mật khẩu?</a>
         		</div>

@@ -10,18 +10,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
-  
+
   <!-- <link rel="stylesheet" href="into.css"> -->
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
   <link href="{{asset('public/backend/css/style1.css')}}" rel='stylesheet' type='text/css' />
   <link href="{{asset('public/fontend/css/style.css')}}" rel='stylesheet' type='text/css' />
   <link href="{{asset('resources/css/style.css')}}" rel='stylesheet' type='text/css' />
-  
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;300&family=Cinzel&family=Cinzel+Decorative&family=Rajdhani&family=Rancho&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
@@ -177,6 +177,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.10/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
     <script src="{{asset('public/fontend/fontawesome/js/fontawesome.js')}}"></script>
     <script src="{{asset('public/fontend/datetimepicker/js/bootstrap-datetimepicker.js')}}"></script>
     <script src="{{asset('public/fontend/datetimepicker/js/bootstrap-datetimepicker.min.js')}}"></script>

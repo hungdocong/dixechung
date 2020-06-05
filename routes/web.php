@@ -14,10 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 //ForntEnd
 Route::get('/', 'HomeController@index');
+
+//đăng bài
 Route::get('/dang-lo-trinh.html','HomeController@dang_bai');
-Route::get('/phuong-tien-thoi-gian.html','HomeController@phuong_tien');
-Route::get('/gia.html','HomeController@gia');
-Route::get('/hoan-thanh.html','HomeController@finish');
+Route::post('phuong-tien-thoi-gian.html', 'HomeController@formWhere');
+
+//Phương tiện thời gian
+Route::post('gia.html', 'HomeController@formVehicle');
+
+//giá
+Route::post('/hoan-thanh.html', 'HomeController@fromPrice');
+
 
 
 // Route::get('/trang-chu','HomeController@index');
@@ -27,7 +34,7 @@ Route::get('/dashboard','AdminController@show_dashboard');
 Route::get('/logout','AdminController@logout');
 Route::post('/dashboard-admin','AdminController@dashboard');
 
-//SEARCH 
+//SEARCH
 // Route::get('/','HomeController@index');
 Route::get('/tim-kiem','HomeController@show_timkiem');
 // ĐĂNG BÀI
@@ -36,7 +43,7 @@ Route::get('/tim-kiem','HomeController@show_timkiem');
 
 Route::get('/','HomeController@index');
 // Route::get('/dky-dnhap','HomeController@dky_dnhap');
-// category DK 
+// category DK
 Route::get('/add-category','Category@add_category');
 Route::get('/all-category','Category@all_category');
 Route::get('/edit-category/{category_pro_id}','Category@edit_category');

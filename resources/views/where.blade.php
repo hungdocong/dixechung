@@ -12,218 +12,35 @@
 
             <div class="row">
               <div class="col-md-12 mx-0">
-                <form id="msform">
+                <form id="msform" action="{{ url('/phuong-tien-thoi-gian.html') }}" method="POST" role="form">
                   <!-- progressbar -->
+                  {{ csrf_field() }}
                   <ul id="progressbar">
                     <li class="active" id="account"><strong>Đi đến đâu?</strong></li>
                     <li id="personal"><strong>Phương tiện & thời gian </strong></li>
                     <li id="payment"><strong>Thông tin & giá</strong></li>
                     <li id="confirm"><strong>Hoàn thành</strong></li>
                   </ul> <!-- fieldsets -->
-                  <fieldset>
-                    <div id="column_left">
-                      <div class="form-card">
-                        <dl>
-                          <dt><label for="s">Đi từ <span class="red">(*)</span></label></dt>
-                          <dd id="dd_start">
-                           <input placeholder="Ví dụ: 1 Tràng Thi, Tràng Tiền, Hoàn Kiếm, Hà Nội, Việt Nam" name="start"  id="start" maxlength="400" placeholder="Ví dụ: Hanoi, Vietnam" />
-                           <a href="javascript:void(0)" onclick="getCurrentPosition('start')" style="color: #fff" title="Vị trí của bạn" alt="Vị trí của bạn"></a>
-                           <div class="row-fluid"> 
-                            <div class="form-group col-md-12" style="padding-left: 0px; padding-right: 0px">
-                            	<div class="col-md-4 chooseAd">
-                            		<select class="form-control" name="depart_city" id="depart_city" renderTo="depart_district">
-                            			<option value="0">Tỉnh/TP</option>
-                            			<option  value="15">Đà Nẵng</option>
-                            			<option  value="24">Hà Nội</option>
-                            			<option  value="59">TP.Hồ Chí Minh</option>
-                            			<option  value="42">Ninh Bình</option>
-                            			<option  value="48">Quảng Ngãi</option>
-                            			<option  value="47">Quảng Nam</option>
-                            			<option  value="46">Quảng Bình</option>
-                            			<option  value="45">Phú Yên</option>
-                            			<option  value="44">Phú Thọ</option>
-                            			<option  value="43">Ninh Thuận</option>
-                            			<option  value="50">Quảng Trị</option>
-                            			<option  value="41">Nghệ An</option>
-                            			<option  value="40">Nam Định</option>
-                            			<option  value="39">Long An</option>
-                            			<option  value="38">Lâm Đồng</option>
-                            			<option  value="37">Lào Cai</option>
-                            			<option  value="36">Lạng Sơn</option>
-                            			<option  value="35">Lai Châu</option>
-                            			<option  value="49">Quảng Ninh</option>
-                            			<option  value="33">Kiên Giang</option>
-                            			<option  value="51">Sóc Trăng</option>
-                            			<option  value="52">Sơn La</option>
-                            			<option  value="53">Tây Ninh</option>
-                            			<option  value="54">Thái Bình</option>
-                            			<option  value="55">Thái Nguyên</option>
-                            			<option  value="56">Thanh Hóa</option>
-                            			<option  value="57">Thừa Thiên Huế</option>
-                            			<option  value="58">Tiền Giang</option>
-                            			<option  value="60">Trà Vinh</option>
-                            			<option  value="61">Tuyên Quang</option>
-                            			<option  value="62">Vĩnh Long</option>
-                            			<option  value="63">Vĩnh Phúc</option>
-                            			<option  value="64">Yên Bái</option>
-                            			<option  value="17">Đắk Nông</option>
-                            			<option  value="1">An Giang</option>
-                            			<option  value="2">Bà Rịa Vũng Tàu</option>
-                            			<option  value="3">Bình Dương</option>
-                            			<option  value="4">Bình Phước</option>
-                            			<option  value="5">Bình Thuận</option>
-                            			<option  value="6">Bình Ðịnh</option>
-                            			<option  value="7">Bạc Liêu</option>
-                            			<option  value="8">Bắc Giang</option>
-                            			<option  value="9">Bắc Kạn</option>
-                            			<option  value="10">Bắc Ninh</option>
-                            			<option  value="11">Bến Tre</option>
-                            			<option  value="12">Cao Bằng</option>
-                            			<option  value="13">Cà Mau</option>
-                            			<option  value="14">Cần Thơ</option>
-                            			<option  value="16">Đắc Lắc</option>
-                            			<option  value="34">Kon Tum</option>
-                            			<option  value="18">Điện Biên</option>
-                            			<option  value="19">Đồng Nai</option>
-                            			<option  value="20">Đồng Tháp</option>
-                            			<option  value="21">Gia Lai</option>
-                            			<option  value="22">Hà Giang</option>
-                            			<option  value="23">Hà Nam</option>
-                            			<option  value="26">Hà Tĩnh</option>
-                            			<option  value="27">Hải Dương</option>
-                            			<option  value="28">Hải Phòng</option>
-                            			<option  value="29">Hậu Giang</option>
-                            			<option  value="30">Hòa Bình</option>
-                            			<option  value="31">Hưng Yên</option>
-                            			<option  value="32">Khánh Hòa</option>
-                            			<option  value="0">Chọn địa phương</option>
-                            		</select>
-                            	</div>
-                            	<div class="col-md-4 chooseAd">
-                            		<select class="form-control"  name="depart_district" id="depart_district"  renderTo="depart_village">
-                            			<option value="0"> Quận/Huyện  </option> 
-                            		</select>
-                            	</div>
-                            	<div class="col-md-4 chooseAd">
-                            		<select class="form-control" name="depart_village" id="depart_village">
-                            			<option value="0"> Phường/Xã  </option> 
-                            		</select>
-                            	</div>
-                            </div>
-                            <!--<p> Hoặc nhập địa chỉ : </p>-->
-                          </div>
-
-                          <div id="suggest_list_start" class="suggest_list"></div>
-                        </dd>
-                        <dt><label for="e">Đến <span class="red">(*)</span></label></dt>
-                        <dd id="dd_end">
-                         <input onchange="if(this.value !='') ga('send', 'event', { eventCategory: 'Chon diem den trong đang chuyen di', eventAction: 'Chon diem den trong đang chuyen di', eventLabel: 'Chon diem den trong đang chuyen di', eventValue: 1}); ga('send', 'pageview', '/virtualpage-nhap-dia-chi-diem-den-trong-dang-chuyen-di');" class="clickaway" value="" type="text" name="end" id="end" placeholder="Ví dụ: Ho Chi Minh, Vietnam" maxlength="400">
-                          <a href="javascript:void(0)" onclick="getCurrentPosition('end')" style="color: #fff" title="Vị trí của bạn" alt="Vị trí của bạn"></a>
-                          <div  class="row_frame">
-                           <div class="form-group col-md-12" style="padding-left: 0px; padding-right: 0px">
-                            	<div class="col-md-4 chooseAd">
-                            		<select class="form-control" name="depart_city" id="depart_city" renderTo="depart_district">
-                            			<option value="0">Tỉnh/TP</option>
-                            			<option  value="15">Đà Nẵng</option>
-                            			<option  value="24">Hà Nội</option>
-                            			<option  value="59">TP.Hồ Chí Minh</option>
-                            			<option  value="42">Ninh Bình</option>
-                            			<option  value="48">Quảng Ngãi</option>
-                            			<option  value="47">Quảng Nam</option>
-                            			<option  value="46">Quảng Bình</option>
-                            			<option  value="45">Phú Yên</option>
-                            			<option  value="44">Phú Thọ</option>
-                            			<option  value="43">Ninh Thuận</option>
-                            			<option  value="50">Quảng Trị</option>
-                            			<option  value="41">Nghệ An</option>
-                            			<option  value="40">Nam Định</option>
-                            			<option  value="39">Long An</option>
-                            			<option  value="38">Lâm Đồng</option>
-                            			<option  value="37">Lào Cai</option>
-                            			<option  value="36">Lạng Sơn</option>
-                            			<option  value="35">Lai Châu</option>
-                            			<option  value="49">Quảng Ninh</option>
-                            			<option  value="33">Kiên Giang</option>
-                            			<option  value="51">Sóc Trăng</option>
-                            			<option  value="52">Sơn La</option>
-                            			<option  value="53">Tây Ninh</option>
-                            			<option  value="54">Thái Bình</option>
-                            			<option  value="55">Thái Nguyên</option>
-                            			<option  value="56">Thanh Hóa</option>
-                            			<option  value="57">Thừa Thiên Huế</option>
-                            			<option  value="58">Tiền Giang</option>
-                            			<option  value="60">Trà Vinh</option>
-                            			<option  value="61">Tuyên Quang</option>
-                            			<option  value="62">Vĩnh Long</option>
-                            			<option  value="63">Vĩnh Phúc</option>
-                            			<option  value="64">Yên Bái</option>
-                            			<option  value="17">Đắk Nông</option>
-                            			<option  value="1">An Giang</option>
-                            			<option  value="2">Bà Rịa Vũng Tàu</option>
-                            			<option  value="3">Bình Dương</option>
-                            			<option  value="4">Bình Phước</option>
-                            			<option  value="5">Bình Thuận</option>
-                            			<option  value="6">Bình Ðịnh</option>
-                            			<option  value="7">Bạc Liêu</option>
-                            			<option  value="8">Bắc Giang</option>
-                            			<option  value="9">Bắc Kạn</option>
-                            			<option  value="10">Bắc Ninh</option>
-                            			<option  value="11">Bến Tre</option>
-                            			<option  value="12">Cao Bằng</option>
-                            			<option  value="13">Cà Mau</option>
-                            			<option  value="14">Cần Thơ</option>
-                            			<option  value="16">Đắc Lắc</option>
-                            			<option  value="34">Kon Tum</option>
-                            			<option  value="18">Điện Biên</option>
-                            			<option  value="19">Đồng Nai</option>
-                            			<option  value="20">Đồng Tháp</option>
-                            			<option  value="21">Gia Lai</option>
-                            			<option  value="22">Hà Giang</option>
-                            			<option  value="23">Hà Nam</option>
-                            			<option  value="26">Hà Tĩnh</option>
-                            			<option  value="27">Hải Dương</option>
-                            			<option  value="28">Hải Phòng</option>
-                            			<option  value="29">Hậu Giang</option>
-                            			<option  value="30">Hòa Bình</option>
-                            			<option  value="31">Hưng Yên</option>
-                            			<option  value="32">Khánh Hòa</option>
-                            			<option  value="0">Chọn địa phương</option>
-                            		</select>
-                            	</div>
-                            	<div class="col-md-4 chooseAd">
-                            		<select class="form-control"  name="depart_district" id="depart_district"  renderTo="depart_village">
-                            			<option value="0"> Quận/Huyện  </option> 
-                            		</select>
-                            	</div>
-                            	<div class="col-md-4 chooseAd">
-                            		<select class="form-control" name="depart_village" id="depart_village">
-                            			<option value="0"> Phường/Xã  </option> 
-                            		</select>
-                            	</div>
-                            </div>
-                            </dd>
-                            <dt>
-                              <label>Lịch trình chi tiết</label>
-                            </dt>
-                            <dd>
-                              <textarea rows="5" name="schedule" placeholder="Lịch trình chuyến đi của bạn nếu có .." style="width:300px"></textarea>
-                            </dd>
-                          </dl>
-                          
-                          <a href="/dixechung" style="padding-right: 25px"><i class="glyphicon glyphicon-triangle-left"></i>Trở lại</a>
-                          <button type="button" class="btn btn-success" id="nextVehicle" name=""> Tiếp theo<i class="glyphicon glyphicon-triangle-right" style="padding-left: 5px"></i></button>
-                        </div>
-                      </div>
-                      <div id="column_right">
-                        <div class="font-card">
-                          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7838.684254869503!2d106.70676642475235!3d10.785086936675276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1547181657956"
-                          width="300" height="572px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        </div>
-                      </div>
+                  <div style="display: none">
+                    <div class="col-md-4">
+                       <input id="origin-input" name="pointStart" class="controls" type="text" placeholder="Nhập điểm xuất phát..."
+                       style="width: 25%; margin: 10px; left: 0px" >
                     </div>
+                    <div class="col-md-4">
+                      <input id="destination-input" name="pointEnd" class="controls" type="text" placeholder="Nhập điểm đích đến..."
+                      style="width: 25%; margin: 10px; left: 0px">
+                    </div>
+                    <input type="radio" name="type" id="changemode-walking" checked="checked" style="display: none;">
+                  </div>
 
-                  </fieldset>
-
+                 <div id="directions-panel" style="display: none;">
+                 </div>
+                 <input type="hidden" name="distance" id="distance" value="">
+                  <div id="map" style="width: 1345px; height: 500px"></div>
+                  <div class="col-md-12" style="background-color: #EFFBFB;">
+                    <a href="/dixechung/" style="padding-right: 25px"><i class="glyphicon glyphicon-triangle-left"></i>Trở lại</a>
+                    <button type="submit" id="nextVehicle" class="btn btn-success" name=""> Tiếp theo<i class="glyphicon glyphicon-triangle-right" style="padding-left: 5px"></i></button>
+                  </div>
 
                 </form>
               </div>
@@ -239,9 +56,171 @@
 @section('jsScript')
     <script type="text/javascript">
     	$(document).ready(function(){
-            $('#nextVehicle').click(function(){
-               window.location.href = "/dixechung/phuong-tien-thoi-gian.html" ;
-            });
-        })
+
+        //validate form
+        $("#msform").validate({
+            rules: {
+                pointStart: "required",
+                pointEnd: "required"
+            },
+            messages: {
+                pointStart: "Vui lòng nhập điểm xuất phát",
+                pointEnd: "Vui lòng nhập điểm đến"
+            }
+        });
+    })
     </script>
+
+    <script>
+// This example requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script
+// src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    mapTypeControl: false,
+    center: {lat: 14.402583, lng: 107.791370},
+    zoom: 6
+  });
+
+  new AutocompleteDirectionsHandler(map);
+}
+
+/**
+ * @constructor
+ */
+ function AutocompleteDirectionsHandler(map) {
+  this.map = map;
+  this.originPlaceId = null;
+  this.destinationPlaceId = null;
+  this.travelMode = 'WALKING';
+  this.directionsService = new google.maps.DirectionsService;
+  this.directionsRenderer = new google.maps.DirectionsRenderer;
+  this.directionsRenderer.setMap(map);
+
+  var originInput = document.getElementById('origin-input');
+  var destinationInput = document.getElementById('destination-input');
+  var modeSelector = document.getElementById('mode-selector');
+
+  var originAutocomplete = new google.maps.places.Autocomplete(originInput);
+  // Specify just the place data fields that you need.
+  originAutocomplete.setFields(['place_id']);
+
+  var destinationAutocomplete =
+  new google.maps.places.Autocomplete(destinationInput);
+  // Specify just the place data fields that you need.
+  destinationAutocomplete.setFields(['place_id']);
+
+  this.setupClickListener('changemode-walking', 'WALKING');
+
+  this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+  this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+
+  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+    destinationInput);
+  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+
+
+
+}
+
+// Sets a listener on a radio button to change the filter type on Places
+// Autocomplete.
+AutocompleteDirectionsHandler.prototype.setupClickListener = function(
+  id, mode) {
+  var radioButton = document.getElementById(id);
+  var me = this;
+
+  radioButton.addEventListener('click', function() {
+    me.travelMode = mode;
+    me.route();
+  });
+};
+
+AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(
+  autocomplete, mode) {
+  var me = this;
+  autocomplete.bindTo('bounds', this.map);
+
+  autocomplete.addListener('place_changed', function() {
+    var place = autocomplete.getPlace();
+
+    if (!place.place_id) {
+      window.alert('Please select an option from the dropdown list.');
+      return;
+    }
+    if (mode === 'ORIG') {
+      me.originPlaceId = place.place_id;
+    } else {
+      me.destinationPlaceId = place.place_id;
+    }
+    me.route();
+  });
+};
+
+AutocompleteDirectionsHandler.prototype.route = function() {
+  if (!this.originPlaceId || !this.destinationPlaceId) {
+    return;
+  }
+  var me = this;
+
+  this.directionsService.route(
+  {
+    origin: {'placeId': this.originPlaceId},
+    destination: {'placeId': this.destinationPlaceId},
+    travelMode: this.travelMode
+  },
+  function(response, status) {
+    if (status === 'OK') {
+      me.directionsRenderer.setDirections(response);
+
+      var route = response.routes[0];
+      var summaryPanel = document.getElementById('directions-panel');
+      summaryPanel.innerHTML = '';
+            // For each route, display summary information.
+            for (var i = 0; i < route.legs.length; i++) {
+              var routeSegment = i + 1;
+              summaryPanel.innerHTML += route.legs[i].distance.text;
+              document.getElementById('distance').value = summaryPanel.innerHTML;
+              var str = $('#distance').val();
+              str = str.replace(",", "");
+              str = str.replace(" km", "");
+              $('#distance').val(str);
+          }
+
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+
+
+//   directionsService.route({
+//       origin: document.getElementById('origin-input').value,
+//       destination: document.getElementById('destination-input').value,
+//       travelMode: 'DRIVING'
+//   }, function(response, status) {
+//       if (status === 'OK') {
+//         directionsRenderer.setDirections(response);
+//         var route = response.routes[0];
+//         var summaryPanel = document.getElementById('directions-panel');
+//         summaryPanel.innerHTML = '';
+//             // For each route, display summary information.
+//             for (var i = 0; i < route.legs.length; i++) {
+//               var routeSegment = i + 1;
+//               summaryPanel.innerHTML += route.legs[i].distance.text;
+//               document.getElementById('distance').value = summaryPanel.innerHTML;
+//           }
+
+//       } else {
+//         window.alert('Directions request failed due to ' + status);
+//     }
+// });
+
+
+};
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5vFoI26szymMYCBXEnWGugmMt2hJUBsM&libraries=places&callback=initMap"
+async defer></script>
 @endsection
