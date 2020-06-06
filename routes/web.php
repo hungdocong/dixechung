@@ -14,22 +14,36 @@ use Illuminate\Support\Facades\Route;
 */
 //ForntEnd
 Route::get('/', 'HomeController@index');
-Route::get('/trang-chu','HomeController@index');
+
+//đăng bài
+Route::get('/dang-lo-trinh.html','HomeController@dang_bai');
+Route::post('phuong-tien-thoi-gian.html', 'HomeController@formWhere');
+
+//Phương tiện thời gian
+Route::post('gia.html', 'HomeController@formVehicle');
+
+//giá
+Route::post('/hoan-thanh.html', 'HomeController@fromPrice');
+
+
+
+// Route::get('/trang-chu','HomeController@index');
 //backend
 Route::get('/admin','AdminController@index');
 Route::get('/dashboard','AdminController@show_dashboard');
 Route::get('/logout','AdminController@logout');
 Route::post('/dashboard-admin','AdminController@dashboard');
-//SEARCH 
-Route::get('/','HomeController@index');
+
+//SEARCH
+// Route::get('/','HomeController@index');
 Route::get('/tim-kiem','HomeController@show_timkiem');
 // ĐĂNG BÀI
-Route::get('/','HomeController@index');
-Route::get('/dang-bai','HomeController@dang_bai');
+// Route::get('/','HomeController@index');
+
 
 Route::get('/','HomeController@index');
-Route::get('/dky-dnhap','HomeController@dky_dnhap');
-// category DK 
+// Route::get('/dky-dnhap','HomeController@dky_dnhap');
+// category DK
 Route::get('/add-category','Category@add_category');
 Route::get('/all-category','Category@all_category');
 Route::get('/edit-category/{category_pro_id}','Category@edit_category');
